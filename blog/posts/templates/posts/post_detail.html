@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <div class="post">
+            <h2>{{ post.title }}</h2>
+            <div class="body">{{ post.body }}</div>
+            <div class="pull-right">
+                <div>
+                    Doubles: {{ post.number_of_words_with_doubles }}
+                </div>
+                <a class="read-more btn btn-default btn-xs"
+                   href="{% url 'post-list' %}"
+                   role="button">Back to the post list</a>
+            </div>
+            <div class="clearfix"></div>
+            <ul class="comments">
+                {% for comment in post.comments.all %}
+                    <li class="comment">{{ comment.body }}</li>
+                {% endfor %}
+            </ul>
+            <div class="clearfix"></div>
+            <div class="pull-left">
+                <a class="add-comment btn btn-default btn-xs"
+                   href="{% url 'comment-add' post.pk %}"
+                   role="button">Add a comment</a>
+            </div>
+        </div>
+{% endblock %}

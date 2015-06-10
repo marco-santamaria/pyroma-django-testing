@@ -1,0 +1,8 @@
+django-testing.sublime-project
+django-testing.sublime-workspace
+*.pyc
+__pycache__
+*.log
+pip-log.txt
+.coverage
+htmlcov

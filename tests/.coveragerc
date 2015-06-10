@@ -1,0 +1,11 @@
+[run]
+branch = True
+source = blog
+include =
+
+omit =  blog/__init__.py
+        blog/wsgi.py
+        blog/settings.py
+        **/migrations/**
+
+ignore_errors = True

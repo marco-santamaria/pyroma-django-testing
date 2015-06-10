@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for post in object_list %}
+        <div id="post-{{ post.pk }}" class="post">
+            <h2>{{ post.title }}</h2>
+            <div class="body">{{ post.body|truncatechars:300 }}</div>
+            <div class="comments-number text-info">
+                <em>Comments number: {{ post.comments_number }}</em>
+            </div>
+            <div class="pull-right">
+                <a class="read-more btn btn-default btn-xs"
+                   href="{% url 'post-detail' post.pk %}"
+                   role="button">read more</a>
+            </div>
+            <div class="pull-left">
+                <a class="toggle-comments btn btn-default btn-xs"
+                   data-comments-url="{% url 'comment-list' post.pk %}"
+                   href="#" role="button">Toggle comments</a>
+            </div>
+            <div class="clearfix"></div>
+            <ul class="comments">
+            </ul>
+        </div>
+        <hr />
+    {% endfor %}
+{% endblock %}
